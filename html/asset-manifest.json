@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.js": "/ArunHarish/personal-website/static/js/main.fdbe0dfb.chunk.js",
+    "main.js.map": "/ArunHarish/personal-website/static/js/main.fdbe0dfb.chunk.js.map",
+    "runtime-main.js": "/ArunHarish/personal-website/static/js/runtime-main.659a6c80.js",
+    "runtime-main.js.map": "/ArunHarish/personal-website/static/js/runtime-main.659a6c80.js.map",
+    "index.html": "/ArunHarish/personal-website/index.html",
+    "precache-manifest.4869c080c2ebc90608ba2c400886af69.js": "/ArunHarish/personal-website/precache-manifest.4869c080c2ebc90608ba2c400886af69.js",
+    "service-worker.js": "/ArunHarish/personal-website/service-worker.js"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.659a6c80.js",
+    "static/js/main.fdbe0dfb.chunk.js"
+  ]
+}
