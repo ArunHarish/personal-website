@@ -1,6 +1,6 @@
 {
   "name": "personal-website",
-  "home" : "./",
+  "homepage" : ".",
   "version": "1.0.0",
   "description": "Personal website stuff",
   "main": "index.js",
