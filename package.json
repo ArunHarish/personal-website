@@ -33,7 +33,6 @@
   "bugs": {
     "url": "https://github.com/ArunHarish/personal-website/issues"
   },
-  "homepage": "https://github.com/ArunHarish/personal-website#readme",
   "browserslist": {
     "production": [
       ">0.2%",
