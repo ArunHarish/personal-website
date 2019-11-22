@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transition test</title>
+    <style>
+        div.text {
+            font-size : 3em;
+            font-family: monospace;
+            display : inline-block;
+            position: relative;
+        }
+
+        div.overlay {
+            position: absolute;
+            width : 150%;
+            height : 100%;
+            top : 0;
+            left : 0;
+            background: #000;
+            display : none;
+        }
+
+        div.text.start div.overlay {
+            display : block;
+            width : 0;
+            animation : transition 500ms;
+        }
+
+        @keyframes transition {
+            0% {
+                left : 0;
+                width : 0;
+            }
+            50% {
+                width : 200px;
+                left : 0;
+            }
+            100% {
+                left : 200px;
+            }
+        }
+    </style>
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+            const text = [
+                "first","second", "third", "fourth"
+            ];
+            let index = 0, // start index
+                element = document.getElementsByClassName("text")[0],
+                span = element.getElementsByClassName("content")[0];
+
+            // Initialising text
+            span.innerHTML = text[index];
+            
+            element.addEventListener("click", () => {
+                element.setAttribute("class", "text start");
+                // Text change
+                setTimeout(() => {
+                    index = (index + 1) % (text.length);
+                    span.innerHTML = text[index];
+                }, 250);
+                // After text change
+                setTimeout(() => {
+                    element.setAttribute("class", "text");
+                }, 500)
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class = "text">
+        <div class = "overlay"></div>
+        <span class = "content"></span>
+    </div>
+</body>
+</html>

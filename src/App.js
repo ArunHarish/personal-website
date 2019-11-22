@@ -1,5 +1,6 @@
 import React from "react";
-import {HashRouter as Router, NavLink, Switch, Route} from "react-router-dom";
+import {HashRouter as Router, NavLink, Switch, Route, Redirect} from "react-router-dom";
+import {TransitionGroup, CSSTransition} from "react-transition-group";
 import {Spinner, Nav, Navbar, Row, Col} from "react-bootstrap";
 import Helmet from "react-helmet";
 // Importing css
@@ -15,7 +16,7 @@ class LogoBar extends React.Component {
                         <span id="magenta">this</span>.
                     </div>
                     <div id="title">
-                        <a href="/#/">
+                        <a href="/#/about">
                             <span id="orange">arun</span>
                         </a>
                         .
@@ -95,10 +96,28 @@ class LoadBar extends React.Component {
 
 }
 
+class Heading extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return (
+            <div id="heading-wrapper">
+                <div id="heading">
+                    <div id="overlay"></div>
+                    <h3>{this.props.children}</h3>
+                </div>
+            </div>
+        )
+    }
+}
+
 class Portfolio extends React.Component {
     render() {
         return (
-            <></>
+            <div className="content">
+                <Heading>Portfolio</Heading>
+            </div>
         )
     }
 }
@@ -106,7 +125,9 @@ class Portfolio extends React.Component {
 class Demo extends React.Component {
     render() {
         return (
-            <></>
+            <div className="content">
+                <Heading>Demo</Heading>
+            </div>
         )
     }
 }
@@ -114,27 +135,9 @@ class Demo extends React.Component {
 class About extends React.Component {
     render() {
         return (
-            <Row>
-                <h1>About</h1>
-            </Row>
-        )
-    }
-}
-
-class Home extends React.Component {
-    render() {
-        return (
-            <main>
-                <h1>Hello World</h1> 
-                <Row>
-                    <Col>
-                        
-                    </Col>
-                    <Col>
-
-                    </Col>
-                </Row>
-            </main>
+            <div className="content">
+                <Heading>About</Heading>
+            </div>
         )
     }
 }
@@ -143,8 +146,15 @@ class Content extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading : true
+            loading : true,
+            timeout : {
+                enter : 500,
+                exit : 500
+            }
         }
+
+
+
     }
 
     render() {
@@ -152,6 +162,7 @@ class Content extends React.Component {
             <Col id = "information-wrapper">
                 <Router>
                     <Switch>
+                        <Redirect strict exact from="/" to = "/about"></Redirect>
                         <Route path="/about">
                             <Helmet>
                                 <title>
@@ -176,20 +187,21 @@ class Content extends React.Component {
                     </Switch> 
                 </Router>
                 <Router>
-                    <Switch>
-                        <Route exact path="/">
-                            <Home></Home>
-                        </Route>
-                        <Route path="/about">
-                            <About></About>
-                        </Route>
-                        <Route path="/demo">
-                            <Demo></Demo>
-                        </Route>
-                        <Route path="/portfolio">
-                            <Portfolio></Portfolio>
-                        </Route>
-                    </Switch>
+                    <TransitionGroup>
+                        <CSSTransition appear={true} mountOnEnter={true} unmountOnExit={true} classNames="content" timeout={this.state.timeout}>
+                            <Switch>  
+                                <Route path = "/about">
+                                    <About></About>
+                                </Route>
+                                <Route path = "/demo">
+                                    <Demo></Demo>
+                                </Route>
+                                <Route path = "/portfolio">
+                                    <Portfolio></Portfolio>
+                                </Route>
+                            </Switch>
+                        </CSSTransition>
+                    </TransitionGroup>
                 </Router>
             </Col>
         )
@@ -201,6 +213,7 @@ class FooterBar extends React.Component {
         return (
             <footer>
                 <div id="design-menu-footer"><span>&#125;</span></div>
+                <i className="fab fa-github"></i>
             </footer>
         )
     }

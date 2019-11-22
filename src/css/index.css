@@ -5,7 +5,7 @@ div#root {
     width : 100%;
     height : 100%;
     background : #fff;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Source Code Pro', monospace;
 }
 
 div#root div#content-wrapper {
@@ -23,7 +23,7 @@ div#root div#content-wrapper {
     padding : 5px;
 }
 
-div#root div#overlay {
+div#root>div#overlay {
     position : absolute;
     width : 100%;
     height : 100%;
@@ -57,7 +57,7 @@ div#top-bar div#logo-bar {
     flex-direction: column;
     font-size: 1.5em;
     text-align: center;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Source Code Pro', monospace;
     justify-content: center;
     align-items: center;
 
@@ -143,12 +143,54 @@ a.menu-link:hover, a.menu-link.selected {
 
 div#information-wrapper {
     position: relative;
-    display : flex;
     flex : 1;
     z-index : 0;
     margin-top: 2em;
 }
 
+div#heading-wrapper {
+    width : 100%;
+    height : 100%;
+    
+}
+
+div#heading {
+    position: relative;
+    display : inline-block;
+}
+
+div#heading div#overlay {
+    position: absolute;
+    height : 30px;
+    background : rgba(0, 0, 0, 1);
+}
+
+
 .navbar-collapse {
     background: #fff;
+}
+
+.content-appear div#heading-wrapper div#heading div#overlay {
+    left : 0;
+    width : 100%;
+}
+
+.content-appear div#heading-wrapper {
+    opacity: 0;
+}
+
+.content-appear.content-appear-active div#heading-wrapper {
+    opacity : 1;
+    transition: opacity 500ms;
+}
+
+.content-appear.content-appear-active div#heading-wrapper div#heading div#overlay {
+    left : 101%;
+    width: 0;
+    transition: left 500ms, width 500ms;
+}
+
+.content-appear-done.content-enter-done div#heading-wrapper div#heading div#overlay {
+    left : 101%;
+    width : 0;
 }
