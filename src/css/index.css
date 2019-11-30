@@ -190,7 +190,18 @@ div#heading div#overlay {
     transition: left 500ms, width 500ms;
 }
 
-.content-appear-done.content-enter-done div#heading-wrapper div#heading div#overlay {
-    left : 101%;
-    width : 0;
+.content-exit div#heading-wrapper div#heading div#overlay {
+    opacity : 1;
+    transition : opacity 500ms;
+}
+
+footer div#design-menu-footer {
+    display : flex;
+}
+
+footer div#design-menu-footer div.design-contact {
+    flex: 1 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }

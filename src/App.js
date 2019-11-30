@@ -147,14 +147,8 @@ class Content extends React.Component {
         super(props);
         this.state = {
             loading : true,
-            timeout : {
-                enter : 500,
-                exit : 500
-            }
+            display : true
         }
-
-
-
     }
 
     render() {
@@ -188,7 +182,9 @@ class Content extends React.Component {
                 </Router>
                 <Router>
                     <TransitionGroup>
-                        <CSSTransition appear={true} mountOnEnter={true} unmountOnExit={true} classNames="content" timeout={this.state.timeout}>
+                        <CSSTransition in={false} appear mountOnEnter unmountOnExit classNames="content" timeout={{
+                            enter : 500, exit : 5000
+                        }}>
                             <Switch>  
                                 <Route path = "/about">
                                     <About></About>
@@ -212,8 +208,16 @@ class FooterBar extends React.Component {
     render() {
         return (
             <footer>
-                <div id="design-menu-footer"><span>&#125;</span></div>
-                <i className="fab fa-github"></i>
+                <div id="design-menu-footer">
+                    <div className="design-symbol">
+                        <span>&#125;</span>
+                    </div>
+                    <div className="design-contact">
+                        <a href = "https://github.com/ArunHarish">
+                            <i className="fa fa-github fa-1x"></i>
+                        </a>
+                    </div>
+                </div>
             </footer>
         )
     }
