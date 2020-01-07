@@ -1,7 +1,7 @@
 import React from "react";
 import { Router, NavLink, Switch, Route, Redirect } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { Spinner, Nav, Navbar, Col } from "react-bootstrap";
+import { Nav, Navbar, Col } from "react-bootstrap";
 import { createBrowserHistory } from 'history';
 import Helmet from "react-helmet";
 // Importing css
@@ -85,28 +85,7 @@ class TopBar extends React.Component {
     }
 }
 
-class LoadBar extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        const displayStyle = {
-            "display" : this.props.visible ? "flex" : "none"
-        }
-        return (
-            <div id="overlay" style={displayStyle}>
-                <Spinner variant="primary" animation="grow"></Spinner>
-            </div>
-        )
-    }
-
-}
-
 class Heading extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <div id="heading-wrapper">
@@ -232,9 +211,6 @@ class FooterBar extends React.Component {
 }
 
 class App extends React.Component {
-    constructor() {
-        super();
-    }
     render() {
         return (
             <div id = "content-wrapper">
@@ -244,7 +220,7 @@ class App extends React.Component {
                     <FooterBar></FooterBar>
                 </HistoryContext.Provider>
             </div>
-        )
+        );
     }
 }
 
