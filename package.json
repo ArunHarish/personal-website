@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
-    "build": "rm -rf html && react-scripts build && mv build html",
+    "build": "react-scripts build",
+    "postbuild": "rm -rf html && mv build html",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
