@@ -1,11 +1,16 @@
 import React from "react";
-import {HashRouter as Router, NavLink, Switch, Route, Redirect} from "react-router-dom";
-import {TransitionGroup, CSSTransition} from "react-transition-group";
-import {Spinner, Nav, Navbar, Row, Col} from "react-bootstrap";
+import { Router, NavLink, Switch, Route, Redirect } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { Spinner, Nav, Navbar, Col } from "react-bootstrap";
+import { createBrowserHistory } from 'history';
 import Helmet from "react-helmet";
 // Importing css
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/index.css";
+
+// Simple context to share router history object
+const HistoryContext = React.createContext();
+
 
 class LogoBar extends React.Component {
     render() {
@@ -16,7 +21,7 @@ class LogoBar extends React.Component {
                         <span id="magenta">this</span>.
                     </div>
                     <div id="title">
-                        <a href="/#/about">
+                        <a href="/about">
                             <span id="orange">arun</span>
                         </a>
                         .
@@ -35,6 +40,7 @@ class LogoBar extends React.Component {
 }
 
 class MenuBar extends React.Component {
+    static contextType = HistoryContext;
     render() {
         
         return (
@@ -43,7 +49,7 @@ class MenuBar extends React.Component {
                     <Navbar.Toggle aria-controls="nav-option"></Navbar.Toggle>
                     <Navbar.Collapse bg="light" id="nav-option">
                         <Nav className="mr-auto">
-                            <Router>
+                            <Router history={this.context}>
                                 <NavLink activeClassName="selected" to="/about" className="menu-link">
                                     About
                                 </NavLink>
@@ -63,6 +69,7 @@ class MenuBar extends React.Component {
 }
 
 class TopBar extends React.Component {
+    static contextType = HistoryContext;
     render() {
         return (
             <div id="top-bar">
@@ -72,7 +79,7 @@ class TopBar extends React.Component {
                         &#123;
                     </span>
                 </div>
-                <MenuBar></MenuBar>
+                <MenuBar history={this.context}></MenuBar>
             </div>
         )
     }
@@ -143,6 +150,7 @@ class About extends React.Component {
 }
 
 class Content extends React.Component {
+    static contextType = HistoryContext;
     constructor(props) {
         super(props);
         this.state = {
@@ -154,7 +162,7 @@ class Content extends React.Component {
     render() {
         return (
             <Col id = "information-wrapper">
-                <Router>
+                <Router history={this.context}>
                     <Switch>
                         <Redirect strict exact from="/" to = "/about"></Redirect>
                         <Route path="/about">
@@ -180,7 +188,7 @@ class Content extends React.Component {
                         </Route>
                     </Switch> 
                 </Router>
-                <Router>
+                <Router history={this.context}> 
                     <TransitionGroup>
                         <CSSTransition in={false} appear mountOnEnter unmountOnExit classNames="content" timeout={{
                             enter : 500, exit : 5000
@@ -224,12 +232,17 @@ class FooterBar extends React.Component {
 }
 
 class App extends React.Component {
+    constructor() {
+        super();
+    }
     render() {
         return (
             <div id = "content-wrapper">
-                <TopBar></TopBar>
-                <Content></Content>
-                <FooterBar></FooterBar>
+                <HistoryContext.Provider value={createBrowserHistory()}>
+                    <TopBar></TopBar>
+                    <Content></Content>
+                    <FooterBar></FooterBar>
+                </HistoryContext.Provider>
             </div>
         )
     }
