@@ -4,11 +4,11 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Nav, Navbar, Col } from "react-bootstrap";
 import { createBrowserHistory } from 'history';
 import Helmet from "react-helmet";
-// Importing css
+import About from "./component/About/About";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/index.css";
 
-// Simple context to share router history object
+
 const HistoryContext = React.createContext();
 
 
@@ -18,19 +18,21 @@ class LogoBar extends React.Component {
             <div id="logo-bar">
                 <div id="name">
                     <div id="this-is-small">
-                        <span id="magenta">this</span>.
+                        <i>
+                            <span id="purple">this</span>.
+                        </i>
                     </div>
                     <div id="title">
-                        <a href="/about">
+                        <a href="/">
                             <span id="orange">arun</span>
+                            .
+                            <span id="cyan">harish</span>
                         </a>
-                        .
-                        <span id="cyan">harish</span>
                     </div>
                     <div id="this-is-small">
                          = ()
                         <span id="red">
-                           &nbsp;=>
+                           &nbsp;=&gt;
                         </span>
                     </div>
                 </div>
@@ -53,12 +55,11 @@ class MenuBar extends React.Component {
                                 <NavLink activeClassName="selected" to="/about" className="menu-link">
                                     About
                                 </NavLink>
-                                <NavLink activeClassName="selected" to="/demo" className="menu-link">
+                                <a target={"_blank"} 
+                                    rel={"noopener noreferrer"} 
+                                    href={"https://demo.arunharish.com"} className={"menu-link"}>
                                     Demo
-                                </NavLink>
-                                <NavLink activeClassName="selected" to="/portfolio" className="menu-link">
-                                    Portfolio
-                                </NavLink>
+                                </a>
                             </Router>
                         </Nav> 
                     </Navbar.Collapse> 
@@ -85,49 +86,6 @@ class TopBar extends React.Component {
     }
 }
 
-class Heading extends React.Component {
-    render() {
-        return (
-            <div id="heading-wrapper">
-                <div id="heading">
-                    <div id="overlay"></div>
-                    <h3>{this.props.children}</h3>
-                </div>
-            </div>
-        )
-    }
-}
-
-class Portfolio extends React.Component {
-    render() {
-        return (
-            <div className="content">
-                <Heading>Portfolio</Heading>
-            </div>
-        )
-    }
-}
-
-class Demo extends React.Component {
-    render() {
-        return (
-            <div className="content">
-                <Heading>Demo</Heading>
-            </div>
-        )
-    }
-}
-
-class About extends React.Component {
-    render() {
-        return (
-            <div className="content">
-                <Heading>About</Heading>
-            </div>
-        )
-    }
-}
-
 class Content extends React.Component {
     static contextType = HistoryContext;
     constructor(props) {
@@ -144,24 +102,10 @@ class Content extends React.Component {
                 <Router history={this.context}>
                     <Switch>
                         <Redirect strict exact from="/" to = "/about"></Redirect>
-                        <Route path="/about">
+                        <Route path="/">
                             <Helmet>
                                 <title>
                                     About | Arun Harish Balasubramonian
-                                </title>
-                            </Helmet>
-                        </Route>
-                        <Route path="/demo">
-                            <Helmet>
-                                <title>
-                                    Demo | Arun Harish Balasubramonian
-                                </title>
-                            </Helmet>
-                        </Route>
-                        <Route path="/portfolio">
-                            <Helmet>
-                                <title>
-                                    Portfolio | Arun Harish Balasubramonian
                                 </title>
                             </Helmet>
                         </Route>
@@ -173,14 +117,8 @@ class Content extends React.Component {
                             enter : 500, exit : 5000
                         }}>
                             <Switch>  
-                                <Route path = "/about">
+                                <Route path="/">
                                     <About></About>
-                                </Route>
-                                <Route path = "/demo">
-                                    <Demo></Demo>
-                                </Route>
-                                <Route path = "/portfolio">
-                                    <Portfolio></Portfolio>
                                 </Route>
                             </Switch>
                         </CSSTransition>
@@ -198,6 +136,7 @@ class FooterBar extends React.Component {
                 <div id="design-menu-footer">
                     <div className="design-symbol">
                         <span>&#125;</span>
+                        <span>;</span>
                     </div>
                     <div className="design-contact">
                         <a href = "https://github.com/ArunHarish">

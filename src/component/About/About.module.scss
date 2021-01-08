@@ -1,0 +1,45 @@
+.content {
+    transition : all 250ms;
+    .description_wrapper {
+        min-height: 250px;
+    }
+    .about_description {
+        margin : auto;
+        .about_me {
+            margin-top : 5%;
+        }
+        .profile {
+            min-width: 100px;
+            padding : 0;
+            margin : 0 1em;
+            shape-outside: circle(50%);
+            
+            .pic {
+                width : 100%;
+                height : auto;
+                border-radius: 50%;
+            }
+        }
+        .skillset {
+            clear: both;
+            width: 100%;
+        }
+    }
+};
+
+@media screen and (max-width:380px) {
+    .about_description {
+        text-align: center;
+        .profile {
+            justify-content: center;
+            width : 100% !important;
+            margin : 0 !important;
+            padding : 0 !important;
+            float : none !important;
+            max-width : 100% !important;
+            .pic {
+                width : 100px !important;
+            }
+        }
+    }
+};
