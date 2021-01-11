@@ -3,8 +3,8 @@ import { Router, NavLink, Switch, Route, Redirect } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { Nav, Navbar, Col } from "react-bootstrap";
 import { createBrowserHistory } from 'history';
-import Helmet from "react-helmet";
-import About from "./component/About/About";
+import { Helmet } from "react-helmet";
+import About from "./containers/About/About";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/index.css";
 
@@ -25,7 +25,7 @@ class LogoBar extends React.Component {
                     <div id="title">
                         <a href="/">
                             <span id="orange">arun</span>
-                            .
+                            <span id="greenish">.</span>
                             <span id="cyan">harish</span>
                         </a>
                     </div>
@@ -74,13 +74,15 @@ class TopBar extends React.Component {
     render() {
         return (
             <div id="top-bar">
-                <LogoBar></LogoBar>
-                <div id="design-menu">
-                    <span>
-                        &#123;
-                    </span>
+                <div id="menu-wrapper">
+                    <LogoBar></LogoBar>
+                    <div id="design-menu">
+                        <span>
+                            &#123;
+                        </span>
+                    </div>
+                    <MenuBar history={this.context}></MenuBar>
                 </div>
-                <MenuBar history={this.context}></MenuBar>
             </div>
         )
     }
@@ -88,20 +90,12 @@ class TopBar extends React.Component {
 
 class Content extends React.Component {
     static contextType = HistoryContext;
-    constructor(props) {
-        super(props);
-        this.state = {
-            loading : true,
-            display : true
-        }
-    }
-
     render() {
         return (
             <Col id = "information-wrapper">
                 <Router history={this.context}>
                     <Switch>
-                        <Redirect strict exact from="/" to = "/about"></Redirect>
+                        <Redirect strict exact from="/" to = "/about" />
                         <Route path="/">
                             <Helmet>
                                 <title>
@@ -113,8 +107,9 @@ class Content extends React.Component {
                 </Router>
                 <Router history={this.context}> 
                     <TransitionGroup>
-                        <CSSTransition in={false} appear mountOnEnter unmountOnExit classNames="content" timeout={{
-                            enter : 500, exit : 5000
+                        <CSSTransition in={false} appear mountOnEnter
+                            unmountOnExit classNames="content" timeout={{
+                                enter : 500, exit : 5000
                         }}>
                             <Switch>  
                                 <Route path="/">
@@ -134,11 +129,11 @@ class FooterBar extends React.Component {
         return (
             <footer>
                 <div id="design-menu-footer">
-                    <div className="design-symbol">
+                    <div id="design-symbol">
                         <span>&#125;</span>
                         <span>;</span>
                     </div>
-                    <div className="design-contact">
+                    <div id="design-contact">
                         <a href = "https://github.com/ArunHarish">
                             <i className="fa fa-github fa-1x"></i>
                         </a>

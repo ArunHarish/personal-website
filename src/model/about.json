@@ -1,0 +1,43 @@
+
+{
+    "defaultSkillSet" : 0,
+    "skillset" : [
+        {
+            "label" : "Front End",
+            "skills" : [
+                "React", "Vue.js", "JQuery",
+                "Javascript/Typescript", "Sass/CSS",
+                "HTML",
+                "Tkinter", "Java FX"
+            ],
+            "description" : [],
+            "icon" : "faDesktop"
+        },
+        {
+            "label" : "Back End",
+            "skills" : ["Node.js", "Express.js", "Django", "Flask", 
+                        "Spring Boot", "Nginx", "Docker", "Docker Compose"],
+            "description" : [],
+            "icon" : "faServer"
+        },
+        {
+            "label" : "DBMS",
+            "skills" : ["MySQL", "MongoDB", "Oracle Database 12c"],
+            "description" : [],
+            "icon" : "faDatabase"
+        },
+        {
+            "label" : "Data Science",
+            "skills" : ["Tensorflow", "Numpy", "MATLAB"],
+            "description" : [],
+            "icon" : "faChartLine"
+        },
+        {
+            "label" : "CAD",
+            "skills" : ["Autodesk Inventor", "Autodesk Revit", 
+                        "Autodesk Autocad"],
+            "description" : [],
+            "icon" : "faCube"
+        }
+    ]
+}

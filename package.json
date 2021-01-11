@@ -11,13 +11,18 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-brands-svg-icons": "^5.15.1",
+    "@fortawesome/free-regular-svg-icons": "^5.15.1",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
     "node-sass": "^4.14.1",
     "react": "^16.14.0",
-    "react-bootstrap": "^1.4.0",
+    "react-bootstrap": "^1.4.3",
     "react-dom": "^16.14.0",
-    "react-helmet": "^5.2.1",
+    "react-helmet": "^6.0.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.4",
     "react-transition-group": "^4.4.1"

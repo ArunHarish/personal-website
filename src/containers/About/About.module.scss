@@ -1,12 +1,12 @@
 .content {
     transition : all 250ms;
     .description_wrapper {
-        min-height: 250px;
-    }
+        min-height: 200px;
+    };
     .about_description {
-        margin : auto;
+        margin : 0.25em;
         .about_me {
-            margin-top : 5%;
+            margin : 1em 0;
         }
         .profile {
             min-width: 100px;
@@ -15,16 +15,22 @@
             shape-outside: circle(50%);
             
             .pic {
+                box-shadow: 0px -3px 7px #474747;
                 width : 100%;
                 height : auto;
-                border-radius: 50%;
-            }
-        }
-        .skillset {
-            clear: both;
+            };
+        };
+    };
+    .skillset {
+        width: 100%;
+        font-size : 0.9em;
+        margin : 1em 0 0 0;
+        .skillset_tab_wrapper {
             width: 100%;
-        }
-    }
+            max-width: 850px;  
+            box-shadow: 0px -1px 5px #bbb;
+        };
+    };
 };
 
 @media screen and (max-width:380px) {
@@ -39,7 +45,7 @@
             max-width : 100% !important;
             .pic {
                 width : 100px !important;
-            }
-        }
-    }
+            };
+        };
+    };
 };

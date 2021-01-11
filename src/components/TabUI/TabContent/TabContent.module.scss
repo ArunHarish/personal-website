@@ -1,0 +1,23 @@
+.skillset_content {
+    flex : 1;
+    background-color: #eee;
+    padding : 1em;
+    .skillset_list {
+        display: flex;
+        min-height : 30px;
+        justify-content: center;
+        align-items: center;
+        margin : 0.2em 0;
+        flex-wrap: wrap;
+        .badges {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            height : 20px;
+            margin : 0.2em;
+        };
+    };
+    .skillset_description {
+        margin : 0.2em 0;
+    };
+};
