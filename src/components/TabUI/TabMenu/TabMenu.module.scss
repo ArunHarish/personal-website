@@ -13,6 +13,9 @@
                 height: 30px;
                 background: inherit;
             }
+            .labelStyling {
+                text-align: left;
+            };
         };
         &:hover, a[aria-selected="true"] {
             background : #eee;

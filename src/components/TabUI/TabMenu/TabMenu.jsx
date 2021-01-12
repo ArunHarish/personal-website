@@ -43,7 +43,7 @@ class TabPane extends React.Component {
                         "w-100"];
         const menuItemWrapper = [classes.menu, "d-flex"];
 
-        const labelStyling = ["flex-md-grow-1"];
+        const labelStyling = [classes.labelStyling, "flex-md-grow-1"];
 
         let selectedContent;
 
