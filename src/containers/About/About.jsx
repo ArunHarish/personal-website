@@ -56,6 +56,9 @@ class Skillset extends React.Component {
         const skillsetTabWrapperList = [
                             classes.skillset_tab_wrapper, 
                             "flex-column",
+                            "flex-md-row",
+                            "flex-sm-column",
+                            "flex-lg-column",
                             "h-auto",
                             "d-flex"];
                             return (
@@ -65,10 +68,12 @@ class Skillset extends React.Component {
                         <SkillSetContext.Consumer>
                             {
                                 (value) => {
+                                    const { onSelectionChange } = value;
                                     const { label : defaultEventKey } = 
                                             value.skillset[value.defaultSkillSet];
                                     return (
-                                        <Tab.Container 
+                                        <Tab.Container
+                                            onSelect={onSelectionChange}
                                             defaultActiveKey={defaultEventKey} 
                                             unmountOnExit={true}>
                                             <TabPane></TabPane>

@@ -7,31 +7,22 @@ import { SkillSetContext } from "../../../contexts/SkillSet";
 import classes from "./TabMenu.module.scss";
 class TabPane extends React.Component {
     static contextType = SkillSetContext;
-    constructor() {
-        super();
-        this.state = {
-            selected : null
-        };
-    };
-
     render() {
         const navWrapperClassList = [
                                         classes.nav_wrapper, "d-md-flex", 
                                         "justify-content-between", 
-                                        "flex-grow", "flex-row", "h-auto",
-                                        "d-none"
+                                        "flex-grow", "flex-column", "h-auto",
+                                        "d-none", "flex-lg-row"
                                     ];
         const navItemClassList = [
                                     classes.nav_link, "flex-grow-1", 
-                                    "flex-shrink-1"
                                 ];
         const navLinkClassList = [
                                     "d-flex", "justify-content-center",
                                     "align-items-center", "d-none", "d-md-flex"
                                 ];
-        const { skillset : tabMenuKeys } = this.context;
+        const { skillset : tabMenuKeys, selected } = this.context;
         const { defaultSkillSet : defaultMenuKey } = this.context;
-        const { selected } = this.state;
 
         const dropdownParentList = [
             classes.dropDownWrapper,
@@ -48,9 +39,11 @@ class TabPane extends React.Component {
             "d-flex", "justify-content-center", "align-items-center"
         ];
 
-        let menuItemListWrapper = [classes.menuItemWrapper,
+        const menuItemListWrapper = [classes.menuItemWrapper,
                         "w-100"];
-        let menuItemWrapper = [classes.menu, "d-flex"];
+        const menuItemWrapper = [classes.menu, "d-flex"];
+
+        const labelStyling = ["flex-md-grow-1"];
 
         let selectedContent;
 
@@ -66,13 +59,10 @@ class TabPane extends React.Component {
                     className={dropdownParentList.join(" ")}>
                     <Dropdown.Toggle variant={"dark"}
                         className={dropdownToggleList.join(" ")}>
-                        <div className={dropdownIcons.join(" ")}>
-                            <FontAwesomeIcon 
-                                icon={fontIcons[selectedContent.icon]} />
-                        </div>
                         <div className={classes.selection}>
                             { selectedContent.label }
                         </div>
+                        <FontAwesomeIcon icon={fontIcons.faBars} />
                     </Dropdown.Toggle>
                     <Dropdown.Menu className={menuItemListWrapper.join(" ")}>
                         {
@@ -112,7 +102,9 @@ class TabPane extends React.Component {
                                             <FontAwesomeIcon 
                                                     icon={fontIcons[e.icon]} />
                                         </div>
-                                        { e.label }
+                                        <div className={labelStyling.join(" ")}>
+                                            { e.label }
+                                        </div>
                                     </Nav.Link>
                                 </Nav.Item>
                             );

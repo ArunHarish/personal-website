@@ -25,6 +25,7 @@
         background-color: #eee;
         color : #474747;
         display: flex;
+        font-weight: bold;
         .icon {
             width : 30px;
             height : 30px;
@@ -33,14 +34,14 @@
             flex : 1;
         }
         &:hover, &:focus {
-            background-color: #fff;
+            background-color: inherit;
             color : inherit;
             border : 0;
             box-shadow: none;
         };
         &::after {
             // text-align: right;
-            content : "" !important;
+            display: none !important;
         };
     };
     .menuItemWrapper {

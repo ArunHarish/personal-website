@@ -5,6 +5,7 @@ import { Nav, Navbar, Col } from "react-bootstrap";
 import { createBrowserHistory } from 'history';
 import { Helmet } from "react-helmet";
 import About from "./containers/About/About";
+import Footer from "./components/Footer/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/index.css";
 
@@ -123,27 +124,6 @@ class Content extends React.Component {
         )
     }
 }
-
-class FooterBar extends React.Component {
-    render() {
-        return (
-            <footer>
-                <div id="design-menu-footer">
-                    <div id="design-symbol">
-                        <span>&#125;</span>
-                        <span>;</span>
-                    </div>
-                    <div id="design-contact">
-                        <a href = "https://github.com/ArunHarish">
-                            <i className="fa fa-github fa-1x"></i>
-                        </a>
-                    </div>
-                </div>
-            </footer>
-        )
-    }
-}
-
 class App extends React.Component {
     render() {
         return (
@@ -151,7 +131,7 @@ class App extends React.Component {
                 <HistoryContext.Provider value={createBrowserHistory()}>
                     <TopBar></TopBar>
                     <Content></Content>
-                    <FooterBar></FooterBar>
+                    <Footer></Footer>
                 </HistoryContext.Provider>
             </div>
         );

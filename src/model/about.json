@@ -28,16 +28,15 @@
         },
         {
             "label" : "Data Science",
-            "skills" : ["Tensorflow", "Numpy", "MATLAB"],
+            "skills" : ["Tensorflow", "Numpy", "MATLAB", "Jupyter", "Excel"],
             "description" : [],
             "icon" : "faChartLine"
         },
         {
-            "label" : "CAD",
-            "skills" : ["Autodesk Inventor", "Autodesk Revit", 
-                        "Autodesk Autocad"],
+            "label" : "Testing Frameworks",
+            "skills" : ["JUnit", "Jest"],
             "description" : [],
-            "icon" : "faCube"
+            "icon" : "faBug"
         }
     ]
 }

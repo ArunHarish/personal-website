@@ -6,8 +6,11 @@ class TabContent extends React.Component {
     static contextType = SkillSetContext;
     render() {
         const { skillset } = this.context;
+        const tabWrapperStyling = [classes.skillset_content, 
+                                    "d-flex", "align-items-center",
+                                    "justify-content-center"];
         return (
-            <Tab.Content className={classes.skillset_content}>
+            <Tab.Content className={tabWrapperStyling.join(" ")}>
                 {
                     skillset.map((e, i) => {
                         const badges = e.skills.map((skill, index) => {
@@ -28,9 +31,25 @@ class TabContent extends React.Component {
                             )
                         });
 
+                        const skillsetListStylings = [
+                            classes.skillset_list,
+                            "d-flex",
+                            "flex-wrap",
+                            "h-auto",
+                            "justify-content-center",
+                        ];
+
+                        const skillsetListParentStyling = [
+                            // "d-flex",
+                            "align-items-center",
+                            "justify-content-center",
+                        ];
+
                         return (
-                            <Tab.Pane key={`${e.label}${i}`} eventKey={e.label}>
-                                <div className={classes.skillset_list}>
+                            <Tab.Pane 
+                                className={skillsetListParentStyling.join(" ")} 
+                                key={`${e.label}${i}`} eventKey={e.label}>
+                                <div className={skillsetListStylings.join(" ")}>
                                     { badges }
                                 </div>
                                 <div className={classes.skillset_description}>
