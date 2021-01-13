@@ -93,14 +93,15 @@ class Skillset extends React.Component {
 class About extends React.Component {
     render() {
         return (
-            <Container className={classes.content}>
-                <Col>
-                    <Header></Header>
-                    <Description></Description>
-                    <Skillset></Skillset>
-                </Col>
-            </Container>
-            
+            <div className={classes.about_wrapper}>
+                <Container className={classes.content}>
+                    <Col>
+                        <Header></Header>
+                        <Description></Description>
+                        <Skillset></Skillset>
+                    </Col>
+                </Container>
+            </div>
         );
     }
 }

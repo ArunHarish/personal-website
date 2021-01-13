@@ -59,10 +59,17 @@ class TabPane extends React.Component {
                     className={dropdownParentList.join(" ")}>
                     <Dropdown.Toggle variant={"dark"}
                         className={dropdownToggleList.join(" ")}>
+                        <div className={classes.selectionFont}>
+                            <FontAwesomeIcon 
+                                icon={fontIcons[selectedContent.icon]} />
+                        </div>
                         <div className={classes.selection}>
                             { selectedContent.label }
                         </div>
-                        <FontAwesomeIcon icon={fontIcons.faBars} />
+                        <div className={classes.menuIcon}>
+                            <FontAwesomeIcon 
+                                    size={"lg"} icon={fontIcons.faAngleUp} />
+                        </div>
                     </Dropdown.Toggle>
                     <Dropdown.Menu className={menuItemListWrapper.join(" ")}>
                         {

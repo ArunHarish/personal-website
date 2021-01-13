@@ -107,7 +107,7 @@ class Content extends React.Component {
                     </Switch> 
                 </Router>
                 <Router history={this.context}> 
-                    <TransitionGroup>
+                    <TransitionGroup className={"content"}>
                         <CSSTransition in={false} appear mountOnEnter
                             unmountOnExit classNames="content" timeout={{
                                 enter : 500, exit : 5000

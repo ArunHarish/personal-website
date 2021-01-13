@@ -164,6 +164,13 @@ div#information-wrapper {
     width: 100%;
 }
 
+div#information-wrapper div.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+};
+
 .navbar-collapse {
     background: #fff;
 }

@@ -36,7 +36,7 @@
             "label" : "Testing Frameworks",
             "skills" : ["JUnit", "Jest"],
             "description" : [],
-            "icon" : "faBug"
+            "icon" : "faWrench"
         }
     ]
 }

@@ -1,3 +1,9 @@
+.about_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+};
 .content {
     transition : all 250ms;
     .description_wrapper {
