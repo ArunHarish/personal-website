@@ -41,12 +41,12 @@
         .selectionFont {
             width: 30px;
             height: 30px;
-            background: #1d2124;
+            // background: #1d2124;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
+            color: inherit;
         };
         .icon {
             width : 30px;
