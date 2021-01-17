@@ -30,7 +30,7 @@ class Description extends React.Component {
                         sm={5} 
                         md={3} lg={3}>
                         <Image className={classes.pic} 
-                            src={"https://arunharish-static-images.s3.amazonaws.com/profile/arun.png"} 
+                            src={"https://arunharish-static-images-local.s3-ap-southeast-2.amazonaws.com/arun.png"} 
                             roundedCircle />
                     </Col>
                     <div className={classes.about_me}>
