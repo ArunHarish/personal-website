@@ -41,7 +41,7 @@ class Description extends React.Component {
                             A Software Engineer graduate from The University of Queensland, with avid interest in web development frameworks (both the front-end &amp; back-end).
                         </p>
                         <p>
-                            Here you will (soon) find my portfolio and all of my projects, ranging from gravity simulators using vector math and canvas API, to digit recogniser developed using Tensorflow based Convolutional Neural Networks.
+                            Here you will find my portfolio and all of my projects, ranging from gravity simulators using vector math and canvas API, to digit recogniser developed using Tensorflow based Convolutional Neural Networks.
                             The following are some of my skill sets:
                         </p>
                     </div>
@@ -56,8 +56,7 @@ class Skillset extends React.Component {
         const skillsetList = [
                             classes.skillset, "justify-content-center", 
                             "align-items-center",
-                            "flex-fill",
-                            "clearfix"
+                            "flex-fill"
         ];
         const skillsetTabWrapperList = [
                             classes.skillset_tab_wrapper, 

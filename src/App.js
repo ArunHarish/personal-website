@@ -1,6 +1,7 @@
 import React from "react";
 import { Router, NavLink, Route, Redirect } from "react-router-dom";
 import { Nav, Navbar, Col } from "react-bootstrap";
+import smoothScroll from "smoothscroll-polyfill";
 // import { useRouteMatch } from "react-router-dom";
 
 import { createBrowserHistory } from 'history';
@@ -18,6 +19,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faBook ,faInfoCircle, faAward } from "@fortawesome/free-solid-svg-icons";
 
 const HistoryContext = React.createContext();
+
+smoothScroll.polyfill();
 
 
 class LogoBar extends React.Component {

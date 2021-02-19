@@ -38,6 +38,9 @@
     font-size : 0.9em;
     margin : 1em 0 1.5em 0 !important;
     max-height : 250px;
+    &::before {
+        clear : both;
+    }
     .skillset_tab_wrapper {
         width: 100%;
         max-width: 800px;  

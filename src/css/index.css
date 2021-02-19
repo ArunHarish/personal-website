@@ -150,14 +150,14 @@ div#menu-wrapper {
     content: "[";
     font-size: 70px;
     opacity: 0.1;
-    transition : transform 1s;
+    transition : transform 1s, opacity 0.75s ease-in-out;
 }
 
 .navbar-collapse::after {
     content: "];";
     font-size: 70px;
     opacity: 0.1;
-    transition : transform 1s;
+    transition : transform 1s, opacity 1s ease-in-out;
 }
 @media screen and (min-width: 500px) and (max-width:768px) {
     .navbar-collapse::after {
@@ -173,12 +173,16 @@ div#menu-wrapper {
         top : 0;
         transform : translate(0, -100%) rotate(180deg);
         opacity: 1;
-    };    
+    }    
+    .navbar-collapse {
+        font-size : 0.95em;
+    }
+
 }
 
 div#menu-wrapper:hover .navbar-collapse::before,
 div#menu-wrapper:hover .navbar-collapse::after {
-    opacity : 0.15;
+    opacity : 0.5;
 }
 
 
@@ -266,6 +270,7 @@ div#information-wrapper div.content {
 .navbar-collapse {
     position: relative;
     background: #fff;
+    transition : font-size 500ms;
 }
 
 .content-appear div#heading-wrapper div#heading div#overlay {

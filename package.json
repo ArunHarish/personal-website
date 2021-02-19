@@ -25,7 +25,8 @@
     "react-helmet": "^6.0.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.4",
-    "react-transition-group": "^4.4.1"
+    "react-transition-group": "^4.4.1",
+    "smoothscroll-polyfill": "^0.4.4"
   },
   "repository": {
     "type": "git",
