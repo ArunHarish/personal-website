@@ -1,8 +1,11 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import Heading from "../../components/Heading/Heading";
 import classes from "./About.module.scss";
 import { Row, Col, Container, Tab, Image } from "react-bootstrap";
 import TabPane from "../../components/TabUI/TabMenu/TabMenu";
+
+import joinClassList from "../../functions/joinClassList";
+
 import SkillSet, { SkillSetContext } from "../../contexts/SkillSet";
 import TabContent from "../../components/TabUI/TabContent/TabContent";
 
@@ -35,10 +38,10 @@ class Description extends React.Component {
                     </Col>
                     <div className={classes.about_me}>
                         <p>
-                            A Software Engineer graduate from The University of Queensland. I <span role="img" aria-label="love web">❤️</span> anything related to web development, both the front-end and back-end frameworks. 
+                            A Software Engineer graduate from The University of Queensland, with avid interest in web development frameworks (both the front-end &amp; back-end).
                         </p>
                         <p>
-                            Here you will (soon) find my portfolio and all of my <span role="img" aria-label="nerdy">🤓</span> projects, ranging from gravity simulators using vector math and canvas API, to digit recogniser developed using Tensorflow based Convolutional Neural Networks.
+                            Here you will (soon) find my portfolio and all of my projects, ranging from gravity simulators using vector math and canvas API, to digit recogniser developed using Tensorflow based Convolutional Neural Networks.
                             The following are some of my skill sets:
                         </p>
                     </div>
@@ -50,9 +53,12 @@ class Description extends React.Component {
 
 class Skillset extends React.Component {
     render() {
-        const skillsetList = [classes.skillset, "justify-content-center", 
-                            "clearfix"]
-                            .join(" ");
+        const skillsetList = [
+                            classes.skillset, "justify-content-center", 
+                            "align-items-center",
+                            "flex-fill",
+                            "clearfix"
+        ];
         const skillsetTabWrapperList = [
                             classes.skillset_tab_wrapper, 
                             "flex-column",
@@ -60,31 +66,32 @@ class Skillset extends React.Component {
                             "flex-sm-column",
                             "flex-lg-column",
                             "h-auto",
-                            "d-flex"];
-                            return (
-                                <Row className={skillsetList}>
+                            "d-flex"
+        ];
+        return (
+            <Row className={skillsetList.join(" ")}>
                 <div className={skillsetTabWrapperList.join(" ")}>
-                    <SkillSet>
-                        <SkillSetContext.Consumer>
-                            {
-                                (value) => {
-                                    const { onSelectionChange } = value;
-                                    const { label : defaultEventKey } = 
-                                            value.skillset[value.defaultSkillSet];
-                                    return (
-                                        <Tab.Container
-                                            onSelect={onSelectionChange}
-                                            defaultActiveKey={defaultEventKey} 
-                                            unmountOnExit={true}>
-                                            <TabPane></TabPane>
-                                            <TabContent></TabContent>
-                                        </Tab.Container>  
-                                    )
-                                }
+                <SkillSet>
+                    <SkillSetContext.Consumer>
+                        {
+                            (value) => {
+                                const { onSelectionChange } = value;
+                                const { label : defaultEventKey } = 
+                                        value.skillset[value.defaultSkillSet];
+                                return (
+                                    <Tab.Container
+                                        onSelect={onSelectionChange}
+                                        defaultActiveKey={defaultEventKey} 
+                                        unmountOnExit={true}>
+                                        <TabPane></TabPane>
+                                        <TabContent></TabContent>
+                                    </Tab.Container>  
+                                )
                             }
-                        </SkillSetContext.Consumer>
-                    </SkillSet>
-                </div>
+                        }
+                    </SkillSetContext.Consumer>
+                </SkillSet>
+            </div>
             </Row>
         );
     };
@@ -92,10 +99,19 @@ class Skillset extends React.Component {
 
 class About extends React.Component {
     render() {
+        const contentClassList = [classes.content, "flex-fill"];
+        const { domReference, className : passedClassName, 
+                ...clonedProps } = this.props;
+        
+        const parentClassList = 
+                        joinClassList(passedClassName, classes.about_wrapper);
+
         return (
-            <div className={classes.about_wrapper}>
-                <Container className={classes.content}>
-                    <Col>
+            <div ref={this.props.domReference}
+                {...clonedProps}
+                className={parentClassList.join(" ")}>
+                <Container className={classes.content_wrapper}>
+                    <Col className={contentClassList.join(" ")}>
                         <Header></Header>
                         <Description></Description>
                         <Skillset></Skillset>
@@ -104,6 +120,8 @@ class About extends React.Component {
             </div>
         );
     }
-}
+};
 
-export default About;
+export default forwardRef((props, reference) => {
+    return <About {...props} domReference={reference} />;
+});

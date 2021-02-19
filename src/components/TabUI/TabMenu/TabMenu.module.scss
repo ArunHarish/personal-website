@@ -49,11 +49,13 @@
             color: inherit;
         };
         .icon {
-            width : 30px;
-            height : 30px;
+            min-width : 30px;
+            min-height : 30px;
         };
         .selection {
             flex : 1;
+            font-size: 0.85em;
+            white-space: pre-wrap;
         }
         &:hover, &:focus {
             background-color: inherit;
@@ -69,17 +71,25 @@
     .menuItemWrapper {
         text-align: center;
         .menu {
-            &:focus {
-                background-color: #fff;
-                color : #474747;
-            }
             .icon {
-                width : 30px;
-                height : 30px;
+                min-width : 30px;
+                min-height : 30px;
             };
             .label {
                 flex : 1;
                 text-align: left;
+                transition : margin 200ms;
+                font-size : 0.9em;
+                white-space: pre-wrap;
+            };
+            &:hover {
+                .label {
+                    margin-left : 6px;
+                }
+            };
+            &:focus {
+                background-color: #fff;
+                color : #474747;
             };
         };
     };
